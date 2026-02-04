@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Learning Web Programming</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheet" rel= style.css>
+    <style>
+nav{
+    background-color: #080808;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  nav ul li {
+    display: inline-block;
+  }
+  
+  nav ul li a {
+    
+    text-decoration: none;
+    color: #f9f8f8;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: #1e90ff;
+  }
+
+
+        header h1{
+            text-align: center;
+            
+        }
+
+
+
+
+
+        /* Chat Button */
+.chat-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chat-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Chat Box */
+.chat-box {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border-left: 2px solid #007bff;
+  border-top: 2px solid #007bff;
+  border-radius: 10px 10px 0 0;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.chat-body {
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.messages {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.message.received {
+  background-color: #e7f3fe;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+.progress {
+  height: 25px;
+  border-radius: 20px;
+  background-color: #e9ecef;
+  overflow: hidden;
+}
+
+.progress-bar {
+  font-weight: bold;
+  line-height: 25px;
+}
+
+
+
+.pie-wrapper {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin: 20px auto;
+}
+
+.pie-wrapper .label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.pie {
+  width: 100%;
+  height: 100%;
+  clip: rect(0, auto, auto, 60px);
+  position: absolute;
+}
+
+.half-circle {
+  width: 100%;
+  height: 100%;
+  border: 8px solid #007bff;
+  border-radius: 50%;
+  position: absolute;
+  clip: rect(0, 60px, auto, 0);
+}
+
+.progress-75 .right-side {
+  transform: rotate(180deg);
+}
+
+.progress-75 .left-side {
+  transform: rotate(135deg);
+}
+
+
+    
+    
+    
+    
+
+/* ========== General Section Styling ========== */
+/* Tabs Styling */
+#role-access .nav-tabs .nav-link {
+  color: #333;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+#role-access .nav-tabs .nav-link.active {
+  color: #0d6efd;
+  border-bottom: 2px solid #0d6efd;
+  background-color: transparent;
+}
+
+#role-access .tab-pane {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-top: none;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+#assignments form {
+  max-width: 600px;
+  margin: auto;
+  background: #f8f9fa;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+#assignments form .form-label {
+  font-weight: 500;
+}
+
+#assignments button {
+  width: 100%;
+  font-weight: 600;
+}
+
+
+
+#downloads .list-group-item {
+  background-color: #fff;
+  border-left: 4px solid #0d6efd;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+#downloads .list-group-item:hover {
+  background: #f1faff;
+}
+
+#downloads .btn-success {
+  font-size: 14px;
+  padding: 6px 10px;
+  font-weight: 500;
+}
+
+
+
+#schedule table {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+#schedule thead th {
+  background-color: #0d6efd;
+  color: #fff;
+  font-weight: 600;
+}
+
+#schedule tbody td {
+  padding: 15px;
+  font-size: 16px;
+}
+
+@media (max-width: 576px) {
+  #schedule table,
+  #schedule thead,
+  #schedule tbody,
+  #schedule th,
+  #schedule td,
+  #schedule tr {
+    display: block;
+    width: 100%;
+  }
+
+  #schedule thead {
+    display: none;
+  }
+
+  #schedule td {
+    text-align: left;
+    padding: 10px;
+    position: relative;
+  }
+
+  #schedule td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+
+
+.star {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.star:hover,
+.star.selected {
+  color: #f0ad4e;
+}
+
+
+
+
+
+/* Main Dashboard Section */
+#role-access {
+  background-color: #f9f9f9;
+}
+
+/* Nav Tabs */
+#role-access .nav-tabs .nav-link {
+  font-weight: 600;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+#role-access .nav-tabs .nav-link.active {
+  border-bottom: 3px solid #0d6efd;
+  color: #0d6efd;
+  background: transparent;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-card i {
+  font-size: 2rem;
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+
+.dashboard-card h5 {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.dashboard-card p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+    </style>
+</head>
+<body>
+
+
+
+    <header>
+        <h1>🌐 Online Learn: Web Programming</h1>
+      </header>
+        <nav>
+          <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="courses.html">📚 Courses</a></li>
+            <li><a href="about.html">ℹ️ About</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+            <li> <a href="register.html">register</a></li>
+            <li> <a href="login.html">🔓 Login</a></li>
+          </ul>
+        </nav>
+        <hr>
+     
+
+
+
+
+
+
+
+
+
+
+<!-- Header Section -->
+<header class="header-section">
+    <div class="container text-center">
+        <h1>Welcome to Learn Web Programming</h1>
+        <p>Master the art of web programming with hands-on tutorials and real-world projects.</p>
+        <a href="register.html" class="btn btn-primary btn-lg">Start Learning</a>
+    </div>
+</header>
+
+
+
+
+<!-- About Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Our Platform</h2>
+                <p>Our online platform offers high-quality tutorials in HTML, CSS, JavaScript, and other web technologies. We provide easy-to-follow lessons and challenges to help you improve your skills and become a web programming expert.</p>
+                <p><i class="fas fa-chalkboard-teacher"></i> Learn from experienced instructors</p>
+                <p><i class="fas fa-cogs"></i> Hands-on coding challenges</p>
+            </div>
+            <div class="col-md-6">
+                <img src="assets/images/about.jpg" alt="About" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- Chat Button -->
+<div id="chatButton" class="chat-btn">
+    <i class="fas fa-comments"></i> Chat with us
+  </div>
+  
+  <!-- Chat Box -->
+  <div id="chatBox" class="chat-box">
+    <div class="chat-header">
+      <span>Chat with Support</span>
+      <button id="closeChat" class="close-btn">X</button>
+    </div>
+    <div class="chat-body">
+      <div id="messages" class="messages">
+        <div class="message received">Hello! How can we assist you today?</div>
+      </div>
+      <textarea id="chatInput" placeholder="Type your message..."></textarea>
+      <button id="sendMessage" class="btn btn-primary">Send</button>
+    </div>
+  </div>
+
+  <section id="comments" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4"><i class="fas fa-comments"></i> Discussion</h2>
+      <div id="comment-box" class="mb-3">
+        <textarea id="commentInput" class="form-control" rows="3" placeholder="Type your question or comment..."></textarea>
+        <button class="btn btn-primary mt-2" onclick="postComment()">Post</button>
+      </div>
+      <ul id="commentList" class="list-group">
+        <!-- Comments appear here -->
+      </ul>
+    </div>
+  </section>
+  
+
+
+
+
+
+
+  <section class="section bg-light" id="courses">
+    <div class="container">
+      <h2 class="text-center mb-5"><i class="fas fa-book-reader"></i> Available Courses</h2>
+      <div class="row">
+        <!-- HTML Course Card -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <div class="card-body text-center">
+              <i class="fab fa-html5 fa-3x text-danger mb-3"></i>
+              <h4 class="card-title">HTML Basics</h4>
+              <p class="card-text">Learn how to structure web pages using semantic HTML5 tags and get familiar with web content management.</p>
+              <a href="#htmlCourse" class="btn btn-primary">Start Learning</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- CSS Course Card -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <div class="card-body text-center">
+              <i class="fab fa-css3-alt fa-3x text-primary mb-3"></i>
+              <h4 class="card-title">CSS Styling</h4>
+              <p class="card-text">Master the art of styling web pages with modern CSS techniques, including Flexbox and CSS Grid.</p>
+              <a href="#cssCourse" class="btn btn-primary">Start Learning</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- JavaScript Course Card -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <div class="card-body text-center">
+              <i class="fab fa-js fa-3x text-warning mb-3"></i>
+              <h4 class="card-title">JavaScript Basics</h4>
+              <p class="card-text">Understand the fundamentals of JavaScript and create dynamic, interactive web pages with ease.</p>
+              <a href="#jsCourse" class="btn btn-primary">Start Learning</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- React JS Course Card -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <div class="card-body text-center">
+              <i class="fab fa-react fa-3x text-info mb-3"></i>
+              <h4 class="card-title">ReactJS for Beginners</h4>
+              <p class="card-text">Dive into modern JavaScript with React, the popular front-end library for building UI components.</p>
+              <a href="#reactCourse" class="btn btn-primary">Start Learning</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Backend Development Course Card -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-server fa-3x text-success mb-3"></i>
+              <h4 class="card-title">Backend Development</h4>
+              <p class="card-text">Get hands-on experience with backend technologies like Node.js, Express, and MongoDB.</p>
+              <a href="#backendCourse" class="btn btn-primary">Start Learning</a>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Full Stack Course Card -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow">
+            <div class="card-body text-center">
+              <i class="fas fa-code fa-3x text-dark mb-3"></i>
+              <h4 class="card-title">Full Stack Web Development</h4>
+              <p class="card-text">Become a full-stack developer and build robust, scalable web applications from scratch.</p>
+              <a href="#fullStackCourse" class="btn btn-primary">Start Learning</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+
+<!-- Home Page Section (after "Welcome to Learn Web Programming") -->
+<section class="features py-5">
+    <div class="container text-center">
+        <h2>Why Learn With Us?</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fas fa-laptop-code fa-3x mb-3"></i>
+                <h3>Hands-on Learning</h3>
+                <p>Work on real-world projects to hone your skills.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-users fa-3x mb-3"></i>
+                <h3>Community Support</h3>
+                <p>Join our community of learners and instructors.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-cogs fa-3x mb-3"></i>
+                <h3>Practical Tools</h3>
+                <p>Access to a wide range of tools and resources.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!-- Call to Action Section -->
+<section class="cta-section py-5 bg-primary text-white text-center">
+    <h2>Ready to start learning?</h2>
+    <p>Join our courses and start your web development journey today.</p>
+    <a href="register.html" class="btn btn-light btn-lg">Get Started</a>
+</section>
+
+
+
+
+<!-- Courses Section -->
+<section class="courses-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center">Our Courses</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="course-card text-center p-4">
+                    <i class="fas fa-laptop-code fa-3x mb-3"></i>
+                    <h4>Front-End Web Development</h4>
+                    <p>Learn the basics of HTML, CSS, and JavaScript. Build interactive websites.</p>
+                    <button class="btn btn-primary">Enroll Now</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="course-card text-center p-4">
+                    <i class="fas fa-server fa-3x mb-3"></i>
+                    <h4>Back-End Web Development</h4>
+                    <p>Learn how to build server-side applications using Node.js, PHP, and MySQL.</p>
+                    <button class="btn btn-primary">Enroll Now</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="course-card text-center p-4">
+                    <i class="fas fa-code fa-3x mb-3"></i>
+                    <h4>Full Stack Development</h4>
+                    <p>Master both front-end and back-end technologies to become a full-stack developer.</p>
+                    <button class="btn btn-primary">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<section id="reviews" class="py-5 bg-white">
+    <div class="container">
+      <h2 class="text-center mb-4"><i class="fas fa-star-half-alt"></i> Rate This Course</h2>
+      <div class="text-center">
+        <div id="stars" class="mb-3">
+          <i class="far fa-star star" data-value="1"></i>
+          <i class="far fa-star star" data-value="2"></i>
+          <i class="far fa-star star" data-value="3"></i>
+          <i class="far fa-star star" data-value="4"></i>
+          <i class="far fa-star star" data-value="5"></i>
+        </div>
+        <p id="rating-text">Click a star to rate</p>
+      </div>
+    </div>
+  </section>
+  
+
+
+
+
+
+
+
+<!-- Testimonial Section -->
+<section class="testimonial-section py-5">
+    <div class="container">
+        <h2 class="text-center">What Our Students Say</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"This platform has helped me improve my skills in web development. The courses are easy to follow and well-structured."</p>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                    </div>
+                    <p><strong>John Doe</strong>, Web Developer</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"The instructors are fantastic, and I now feel confident in using JavaScript in my projects. Highly recommend!"</p>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p><strong>Jane Smith</strong>, Front-End Developer</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <p>"A great platform for learning web programming at your own pace. The community is supportive, and the resources are top-notch."</p>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star-half-alt text-warning"></i>
+                        <i class="far fa-star text-warning"></i>
+                    </div>
+                    <p><strong>Mark Lee</strong>, Full Stack Developer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FAQ Section -->
+<section class="faq-section py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="card">
+                <div class="card-header" id="faqOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-question-circle"></i> What is Learn Web Programming?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="faqOne" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Learn Web Programming is an online platform that provides comprehensive tutorials and hands-on courses in HTML, CSS, JavaScript, and other essential web technologies.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="faqTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-question-circle"></i> How can I register for courses?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="faqTwo" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Simply go to the registration page, fill in your details, and you’ll gain access to our full range of courses.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="faqThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fas fa-question-circle"></i> Do you offer certifications?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="faqThree" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Yes, after completing a course, you will receive a certificate that you can share on your resume or LinkedIn profile.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section id="dashboard" class="section bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5"><i class="fas fa-tachometer-alt"></i> Your Dashboard</h2>
+      
+      <div class="row text-center mb-4">
+
+
+
+
+
+
+        <!-- Dashboard Cards -->
+        <div class="col-md-4 mb-3">
+          <div class="card shadow-sm p-3">
+            <i class="fas fa-book-open fa-2x text-primary mb-2"></i>
+            <h5>Total Courses</h5>
+            <p><strong>6</strong></p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card shadow-sm p-3">
+            <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+            <h5>Completed Lessons</h5>
+            <p><strong>15</strong> / 25</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card shadow-sm p-3">
+            <i class="fas fa-clock fa-2x text-warning mb-2"></i>
+            <h5>Hours Studied</h5>
+            <p><strong>12</strong> hrs</p>
+          </div>
+        </div>
+      </div>
+  
+
+
+
+      <section id="role-access" class="py-5 bg-light">
+        <div class="container">
+          <h2 class="text-center mb-4"><i class="fas fa-user-shield"></i> Role-Based Dashboard</h2>
+          <ul class="nav nav-tabs justify-content-center mb-3" id="roleTabs">
+            <li class="nav-item">
+              <a class="nav-link active" id="student-tab" data-bs-toggle="tab" href="#student">Student View</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="teacher-tab" data-bs-toggle="tab" href="#teacher">Teacher View</a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="student">
+              <div class="card p-3">
+                <h5>📘 Courses Enrolled</h5>
+                <p>You are enrolled in 4 courses. Continue your progress!</p>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="teacher">
+              <div class="card p-3">
+                <h5>🧑‍🏫 Teacher Panel</h5>
+                <p>Upload course materials, check student submissions, and grade assignments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+
+
+      <section id="assignments" class="bg-white py-5">
+        <div class="container">
+          <h2 class="text-center mb-4"><i class="fas fa-upload"></i> Upload Assignments & Exams</h2>
+          <form>
+            <div class="mb-3">
+              <label for="course" class="form-label">Course Title</label>
+              <input type="text" class="form-control" id="course" placeholder="e.g., HTML Basics">
+            </div>
+            <div class="mb-3">
+              <label for="uploadFile" class="form-label">Upload File</label>
+              <input type="file" class="form-control" id="uploadFile">
+            </div>
+            <div class="mb-3">
+              <label for="deadline" class="form-label">Submission Deadline</label>
+              <input type="date" class="form-control" id="deadline">
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button>
+          </form>
+        </div>
+      </section>
+
+      
+
+
+
+
+
+      <section id="assignments" class="bg-white py-5">
+        <div class="container">
+          <h2 class="text-center mb-4"><i class="fas fa-upload"></i> Upload Assignments & Exams</h2>
+          <form>
+            <div class="mb-3">
+              <label for="course" class="form-label">Course Title</label>
+              <input type="text" class="form-control" id="course" placeholder="e.g., HTML Basics">
+            </div>
+            <div class="mb-3">
+              <label for="uploadFile" class="form-label">Upload File</label>
+              <input type="file" class="form-control" id="uploadFile">
+            </div>
+            <div class="mb-3">
+              <label for="deadline" class="form-label">Submission Deadline</label>
+              <input type="date" class="form-control" id="deadline">
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button>
+          </form>
+        </div>
+      </section>
+
+      
+
+
+
+
+
+
+
+      <section id="downloads" class="bg-light py-5">
+        <div class="container">
+          <h2 class="text-center mb-4"><i class="fas fa-download"></i> Download Course Materials</h2>
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              HTML Notes.pdf
+              <a href="#" class="btn btn-sm btn-success"><i class="fas fa-file-download"></i> Download</a>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              CSS Reference.docx
+              <a href="#" class="btn btn-sm btn-success"><i class="fas fa-file-download"></i> Download</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      
+
+
+
+
+
+
+
+      <section id="schedule" class="bg-white py-5">
+        <div class="container">
+          <h2 class="text-center mb-4"><i class="fas fa-calendar-alt"></i> Class Schedule</h2>
+          <table class="table table-bordered text-center">
+            <thead class="table-primary">
+              <tr>
+                <th>Day</th>
+                <th>Course</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>HTML Basics</td>
+                <td>9:00 AM - 10:30 AM</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>CSS Styling</td>
+                <td>2:00 PM - 3:30 PM</td>
+              </tr>
+              <tr>
+                <td>Friday</td>
+                <td>JavaScript Fundamentals</td>
+                <td>11:00 AM - 12:30 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+
+
+
+
+
+
+      <!-- Progress Bars -->
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h5><i class="fab fa-html5 text-danger"></i> HTML Basics</h5>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 80%;" aria-valuenow="80"
+              aria-valuemin="0" aria-valuemax="100">80%</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h5><i class="fab fa-css3-alt text-primary"></i> CSS Styling</h5>
+          <div class="progress">
+            <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="60"
+              aria-valuemin="0" aria-valuemax="100">60%</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h5><i class="fab fa-js text-warning"></i> JavaScript Basics</h5>
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 40%;" aria-valuenow="40"
+              aria-valuemin="0" aria-valuemax="100">40%</div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <h5><i class="fas fa-code text-dark"></i> Full Stack</h5>
+          <div class="progress">
+            <div class="progress-bar bg-dark" role="progressbar" style="width: 20%;" aria-valuenow="20"
+              aria-valuemin="0" aria-valuemax="100">20%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+
+  <div class="row text-center">
+    <div class="col-md-6">
+      <h5><i class="fas fa-chart-pie text-info"></i> Overall Completion</h5>
+      <div class="pie-wrapper progress-75">
+        <span class="label">75%</span>
+        <div class="pie">
+          <div class="left-side half-circle"></div>
+          <div class="right-side half-circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <section id="feedback" class="section bg-white py-5">
+    <div class="container">
+      <h2 class="text-center mb-4"><i class="fas fa-comment-dots"></i> Student Feedback</h2>
+      <div class="card mb-3">
+        <div class="card-body">
+          <p><strong>Jane Doe:</strong> "The HTML lessons are really easy to follow! Loved the visuals."</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <p><strong>Ali Osman:</strong> "Thanks for adding live chat. Super helpful for quick questions!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="alert alert-info text-center" role="alert">
+    <i class="fas fa-envelope"></i> You've received a new course update via email!
+  </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer with Social Media Icons -->
+<footer class="footer bg-dark text-white text-center py-4">
+    <p>&copy; 2025 Learn Web Programming. All Rights Reserved.</p>
+    <div class="social-icons">
+        <a href="#" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white mr-3"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+
+
+<script>
+    // Open the chat box
+    document.getElementById("chatButton").addEventListener("click", function() {
+      document.getElementById("chatBox").style.display = "flex";
+    });
+  
+    // Close the chat box
+    document.getElementById("closeChat").addEventListener("click", function() {
+      document.getElementById("chatBox").style.display = "none";
+    });
+  
+    // Send a message (for demo purposes)
+    document.getElementById("sendMessage").addEventListener("click", function() {
+      const userMessage = document.getElementById("chatInput").value;
+      if (userMessage.trim()) {
+        const newMessage = document.createElement("div");
+        newMessage.classList.add("message", "sent");
+        newMessage.textContent = userMessage;
+        document.getElementById("messages").appendChild(newMessage);
+        document.getElementById("chatInput").value = ""; // Clear input field
+  
+        // Simulate a response from support
+        setTimeout(() => {
+          const supportMessage = document.createElement("div");
+          supportMessage.classList.add("message", "received");
+          supportMessage.textContent = "Support: Thank you for your message. How can we help you further?";
+          document.getElementById("messages").appendChild(supportMessage);
+        }, 1000);
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+<script>
+    // Load comments from localStorage
+    window.onload = function () {
+      const storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+      const commentList = document.getElementById('commentList');
+      storedComments.reverse().forEach(comment => {
+        const commentItem = document.createElement('li');
+        commentItem.className = 'list-group-item';
+        commentItem.innerHTML = `<i class="fas fa-user me-2 text-primary"></i>${comment}`;
+        commentList.appendChild(commentItem);
+      });
+    };
+  
+    function postComment() {
+      const input = document.getElementById('commentInput');
+      const text = input.value.trim();
+      if (text !== '') {
+        const commentList = document.getElementById('commentList');
+        const commentItem = document.createElement('li');
+        commentItem.className = 'list-group-item';
+        commentItem.innerHTML = `<i class="fas fa-user me-2 text-primary"></i>${text}`;
+        commentList.prepend(commentItem);
+  
+        // Save to localStorage
+        let stored = JSON.parse(localStorage.getItem('comments')) || [];
+        stored.push(text);
+        localStorage.setItem('comments', JSON.stringify(stored));
+  
+        input.value = '';
+      }
+    }
+  </script>
+  
+  
+  
+
+
+
+  <script>
+    const stars = document.querySelectorAll('.star');
+    const ratingText = document.getElementById('rating-text');
+  
+    function setRating(rating) {
+      stars.forEach(s => s.classList.remove('selected'));
+      for (let i = 0; i < rating; i++) {
+        stars[i].classList.add('selected');
+      }
+      ratingText.textContent = `You rated this course: ${rating} star(s)`;
+      localStorage.setItem('rating', rating);
+    }
+  
+    // Restore saved rating
+    window.onload = function () {
+      let savedRating = localStorage.getItem('rating');
+      if (savedRating) {
+        setRating(savedRating);
+      }
+    };
+  
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = star.getAttribute('data-value');
+        setRating(rating);
+      });
+    });
+  </script>
+  
+  
+</body>
+</html>
